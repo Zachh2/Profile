@@ -821,10 +821,10 @@ body {
 /* Navbar styles */
 .navbar {
   background: linear-gradient(45deg, #00bcd4, #ff4081); /* Gradient background */
-  border-bottom: 2px solid #fff; /* Subtle white border */
+  border-bottom: 2px solid #000000; /* Subtle white border */
   height: 60px; /* Increased height */
   padding: 0 20px; /* More padding */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow effect */
+  box-shadow: 0 2px 4px rgb(255, 255, 255, 0.2); /* Shadow effect */
   display: flex; /* Use flexbox for alignment */
   align-items: center; /* Center items vertically */
   justify-content: space-between; /* Space between brand and links */
@@ -838,126 +838,42 @@ body {
 }
 
 /* Navbar Toggler */
-.custom-toggler {
-  border: none;
-  background: #fff; /* White background */
-  border-radius: 50%;
-  width: 40px; /* Larger toggler */
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
-/* Navbar Toggler Icon */
-.custom-toggler .navbar-toggler-icon {
-  width: 25px; /* Width of the lines */
-  height: 2px; /* Height of the lines */
-  background-color: #000; /* Color of the lines */
-  position: relative;
-  display: block;
-}
 
-.custom-toggler .navbar-toggler-icon::before,
-.custom-toggler .navbar-toggler-icon::after {
-  content: '';
-  position: absolute;
-  width: 25px; /* Width of the lines */
-  height: 2px; /* Height of the lines */
-  background-color: #000; /* Color of the lines */
-  transition: all 0.3s ease;
-}
-
-.custom-toggler .navbar-toggler-icon::before {
-  top: -6px; /* Adjust distance from the first line */
-}
-
-.custom-toggler .navbar-toggler-icon::after {
-  bottom: -6px; /* Adjust distance from the last line */
-}
-
-/* Animation for toggler */
-.custom-toggler.collapsed .navbar-toggler-icon {
-  background-color: transparent; /* Hide the middle line when toggled */
-}
-
-.custom-toggler.collapsed .navbar-toggler-icon::before {
-  transform: rotate(45deg); /* Rotate to form a cross */
-  top: 0; /* Adjust positioning */
-}
-
-.custom-toggler.collapsed .navbar-toggler-icon::after {
-  transform: rotate(-45deg); /* Rotate to form a cross */
-  bottom: 0; /* Adjust positioning */
-}
-
-/* Navbar Links */
-.navbar-nav {
-  display: flex; /* Ensure links are displayed in a row */
-  margin-left: auto; /* Push links to the right */
-}
-
-.navbar-nav .nav-link {
-  color: #000; /* Black color for the text */
-  font-weight: bold; /* Bold text */
-    font-size: 1rem; /* Font size */
-  background-color: #fff; /* White background for links */
-  padding: 8px 15px; /* Padding for links */
-  border-radius: 5px; /* Slightly rounded corners */
-  margin-left: 8px; /* Space between links */
-  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
-}
-
-.navbar-nav .nav-link:hover {
-  color: #ff4081; /* Pink color on hover */
-  background-color: #f0f0f0; /* Light grey background on hover */
-}
-
-/* Responsive adjustments */
-@media (max-width: 767px) {
-  .navbar-nav {
-    position: fixed;
-    top: 0;
-    right: -250px; /* Initially hidden off-screen to the right */
-    height: 100%;
-    width: 250px; /* Adjust the width as needed */
-    background-color: #fff; /* Background color for the navbar */
-    box-shadow: -2px 0 5px rgba(0,0,0,0.5); /* Shadow for the sliding effect */
-    flex-direction: column; /* Stack items vertically */
-    transition: right 0.3s ease; /* Smooth transition for sliding in and out */
-    z-index: 1050; /* Ensure it appears above other elements */
-  }
-}
 /* Cu
- /* Custom Styles */
+/* Custom Styles */
+    body {
+      background-color: #f8f9fa;
+      overflow-x: hidden;
+    }
+
     .swipe-content {
       position: fixed;
       top: 0;
-      right: -250px; /* Hidden off-screen by default */
-      width: 250px;
+      right: -200px;
+      width: 200px;
       height: 100vh;
-      background-color: #f8f9fa;
+      background-color: #ffffff;
       box-shadow: -3px 0 6px rgba(0, 0, 0, 0.2);
       transition: right 0.3s ease-in-out;
-      padding: 20px;
+      padding: 15px;
       overflow-y: auto;
       z-index: 1000;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      border-radius: 0 15px 15px 0; /* Rounded corners */
+      border-radius: 0 10px 10px 0;
     }
 
     .swipe-content.open {
-      right: 0; /* Slide in */
+      right: 0;
     }
 
     .swipe-content .close-btn {
       position: absolute;
-      top: 15px;
-      left: 15px;
-      font-size: 20px;
+      top: 10px;
+      left: 10px;
+      font-size: 18px;
       background: none;
       border: none;
       cursor: pointer;
@@ -976,33 +892,82 @@ body {
     }
 
     .nav-list li {
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       text-align: center;
     }
 
     .nav-list a {
       text-decoration: none;
       color: #007bff;
-      font-size: 18px;
-      border: 1px solid #007bff;
-      border-radius: 25px;
-      padding: 8px 16px;
+      font-size: 16px;
+      border: 2px solid #007bff;
+      border-radius: 20px;
+      padding: 8px 15px;
       display: inline-block;
-      transition: background-color 0.3s, color 0.3s;
+      transition: background-color 0.3s, color 0.3s, border-color 0.3s;
     }
 
     .nav-list a:hover {
       background-color: #007bff;
       color: white;
+      border-color: #0056b3;
     }
 
     #swipe-btn {
       font-size: 14px;
-      padding: 8px 16px;
+      padding: 8px 15px;
+      border-radius: 20px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s, color 0.3s;
     }
 
-    /* Additional styling for navbar toggler */
+    #swipe-btn:hover {
+      background-color: #0056b3;
+      color: white;
+    }
+
     .navbar-toggler.custom-toggler {
       border: 1px solid #007bff;
       border-radius: 50%;
+      padding: 0;
+    }
+
+    .modal-content {
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .popup {
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      background: #fff;
+    }
+
+    .popup-close {
+      font-size: 20px;
+      cursor: pointer;
+      color: #007bff;
+      transition: color 0.3s;
+    }
+
+    .popup-close:hover {
+      color: #0056b3;
+    }
+
+    /* Mobile specific styles */
+    @media (max-width: 576px) {
+      .nav-list a {
+        font-size: 14px;
+        padding: 6px 10px;
+      }
+
+      #swipe-btn {
+        font-size: 12px;
+        padding: 6px 10px;
+      }
     }

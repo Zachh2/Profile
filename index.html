@@ -18,12 +18,11 @@
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-light">
     <a class="navbar-brand" href="#">Zach</a>
-   
-    <button id="swipe-btn" class="btn btn-primary">Features</button> <!-- Swipe Button -->
+    <button id="swipe-btn" class="btn btn-primary" data-toggle="modal" data-target="#featuresModal">Features</button> <!-- Swipe Button -->
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="https://ssassa.onrender.com">AutoBot</a>
+          <a class="nav-link" href="https://ssassa.onrender.com/">AutoBot</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#about">ShareBoost(fbpost)</a>
@@ -37,7 +36,6 @@
       </ul>
     </div>
     <div id="swipe-content" class="swipe-content">
-      <!-- Content to be revealed -->
       <button class="close-btn" id="close-swipe-btn">&times;</button>
       <ul id="nav-list" class="nav-list">
         <li><a href="#home" data-target="home">AutoBot</a></li>
@@ -68,7 +66,7 @@
         </a>
       </div>
       <div class="popup-quote">
-        But... the sensation that I've lost something lingers for a longtime after I wake up.
+        But... the sensation that I've lost something lingers for a long time after I wake up.
       </div>
       <a class="popup-close" onclick="history.back()">&times;</a>
     </div>
@@ -100,6 +98,32 @@
     ☠︎ DEVELOPER OF CHATBOT
   </div>
 
+  <!-- Modal for Features Button -->
+  <div class="modal fade" id="featuresModal" tabindex="-1" role="dialog" aria-labelledby="featuresModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="featuresModalLabel">Features</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Here are some of the amazing features:</p>
+          <ul>
+            <li>AutoBot: Automate your tasks seamlessly.</li>
+            <li>ShareBoost: Enhance your Facebook post engagements.</li>
+            <li>AutoReact: Automatically react to posts on Facebook.</li>
+            <li>Autovieews: Increase your TikTok views effortlessly.</li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- jQuery -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <!-- Bootstrap JS -->
@@ -124,7 +148,7 @@
     function showTogglerAlert() {
       Swal.fire({
         title: "Note",
-        text: "All features available here, but use it for educ purposes",
+        text: "All features available here, but use it for educational purposes.",
         icon: "info"
       });
     }
@@ -134,7 +158,7 @@
 
     // Add event listener to trigger SweetAlert2 modal on swipe button click
     document.getElementById('swipe-btn').addEventListener('click', function() {
-      showTogglerAlert(); 
+      showTogglerAlert();
       var swipeContent = document.getElementById('swipe-content');
       swipeContent.classList.toggle('open');
     });
@@ -144,6 +168,35 @@
       var swipeContent = document.getElementById('swipe-content');
       swipeContent.classList.remove('open');
     });
+
+    // Prevent swipe gestures from showing swipe-content
+    let startX, startY, isSwiping;
+
+    document.addEventListener('touchstart', function(e) {
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+      isSwiping = false;
+    });
+
+    document.addEventListener('touchmove', function(e) {
+      let currentX = e.touches[0].clientX;
+      let currentY = e.touches[0].clientY;
+
+      // Detect swipe direction and distance
+      const deltaX = currentX - startX;
+      const deltaY = currentY - startY;
+      if (Math.abs(deltaX) > Math.abs(deltaY) && deltaX > 50) {
+        isSwiping = true;
+        e.preventDefault(); // Prevent default action to avoid showing swipe-content
+      }
+    });
+
+    document.addEventListener('touchend', function(e) {
+      if (isSwiping) {
+        e.preventDefault(); // Prevent swipe from showing the swipe-content
+        isSwiping = false; // Reset swipe status
+      }
+    }, { passive: false });
   </script>
 </body>
-          </html>
+  </html>
